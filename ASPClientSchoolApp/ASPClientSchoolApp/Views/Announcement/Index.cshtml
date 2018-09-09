@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Announcement";
+}
+
+@Styles.Render("~/Inspiana_Form_CSS")
+
+
+@* breadCrumb *@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Announcement</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Home")">Home</a>
+            </li>
+            <li class="active">
+                <strong>Announcement</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@* Tabs *@
+
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    @*<h5>Basic IN+ Panel <small class="m-l-sm">This is custom panel</small></h5>*@
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#tab-1"> View All</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-2">Add New</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+
+                                @Html.Action("ViewAll")
+
+                            </div>
+                            <div id="tab-2" class="tab-pane">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        @Html.Action("AddorEdit")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</div>
+
+
+@Scripts.Render("~/Inspiana_Form_JS")
+
+<!--datatable script  Page-Level Scripts -->
+<script>
+    $(document).ready(function () {
+            $('.dataTables-example').DataTable({
+                pageLength: 10,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+    });
+
+
+    function activatejQueryTable() {
+        $('#dataTable').DataTable();
+
+    }
+    $(function () {
+        activatejQueryTable();
+    });
+
+</script>
+

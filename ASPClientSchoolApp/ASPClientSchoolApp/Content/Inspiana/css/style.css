@@ -44,7 +44,7 @@ h5 {
   padding: 14px 20px 14px 25px;
 }
 .nav.navbar-right > li > a {
-  color: #999c9e;
+  color: #ffffff;
 }
 .nav > li.active > a {
   color: #ffffff;
@@ -2907,8 +2907,9 @@ a.forum-item-title:hover {
 .tabs-container .nav-tabs > li.active > a,
 .tabs-container .nav-tabs > li.active > a:hover,
 .tabs-container .nav-tabs > li.active > a:focus {
-  border: 1px solid #e7eaec;
-  border-bottom-color: transparent;
+    border: 1px solid #e7eaec;
+    border-bottom-color: transparent;
+    border-top: 2px solid #1ab394;;
 }
 .tabs-container .nav-tabs {
   border-bottom: 1px solid #e7eaec;

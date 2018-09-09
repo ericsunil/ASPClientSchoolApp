@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ASPClientSchoolApp.Models.Grade>
+
+@{
+    ViewBag.Title = "ViewAll";
+    Layout = null;
+}
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover dataTables-example" id="dataTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassAlpha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassRoman)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassNumeric)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Section)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassAlpha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassRoman)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassNumeric)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Section)
+                </td>
+                <td>
+                    <a class="btn btn-success" onclick="Edit('@Url.Action("AddorEdit", "Grade", new { id=@item.GradeID })')"> <i class="fa fa-edit"></i> Edit</a>
+                    <a class="btn btn-danger" onclick="Delete('@Url.Action("Delete", "Grade", new { id=@item.GradeID })')"><i class="fa fa-trash"></i> Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ASPClientSchoolApp.Models.MessageTable>
+
+@{
+    ViewBag.Title = "ViewAll";
+    Layout = null;
+}
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover dataTables-example" id="dataTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MCD)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromToken)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ToToken)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Detail)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MCD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromToken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToToken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detail)
+                </td>
+                <td>
+                    <a class="btn btn-success" onclick="Edit('@Url.Action("AddorEdit", "Message", new { id=@item.MessageID })')"> <i class="fa fa-edit"></i> Edit</a>
+                    <a class="btn btn-danger" onclick="Delete('@Url.Action("Delete", "Message", new { id=@item.MessageID })')"><i class="fa fa-trash"></i> Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

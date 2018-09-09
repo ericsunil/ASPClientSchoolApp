@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="school5adskModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutTables">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Introduction" Type="nvarchar(max)" />
+          <Property Name="Rules" Type="nvarchar(max)" />
+          <Property Name="Facilities" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AnnouncementTables">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AssignmentTables">
+          <Key>
+            <PropertyRef Name="AssignmentID" />
+          </Key>
+          <Property Name="AssignmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AttendanceTables">
+          <Key>
+            <PropertyRef Name="AttendanceID" />
+          </Key>
+          <Property Name="AttendanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Present" Type="int" />
+          <Property Name="Absent" Type="int" />
+        </EntityType>
+        <EntityType Name="ChildAchievementTables">
+          <Key>
+            <PropertyRef Name="ChildAchievementID" />
+          </Key>
+          <Property Name="ChildAchievementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="MCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FeeDueTables">
+          <Key>
+            <PropertyRef Name="FeeID" />
+          </Key>
+          <Property Name="FeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="MCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCleared" Type="bit" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Grades">
+          <Key>
+            <PropertyRef Name="GradeID" />
+          </Key>
+          <Property Name="GradeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GradeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassAlpha" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassRoman" Type="nvarchar" MaxLength="15" />
+          <Property Name="ClassNumeric" Type="int" />
+          <Property Name="Section" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="MessageTables">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NoticeTables">
+          <Key>
+            <PropertyRef Name="NoticeID" />
+          </Key>
+          <Property Name="NoticeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="280" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ParentTables">
+          <Key>
+            <PropertyRef Name="ParentID" />
+          </Key>
+          <Property Name="ParentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntryToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="ParentName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PersonnelTables">
+          <Key>
+            <PropertyRef Name="PersonnelID" />
+          </Key>
+          <Property Name="PersonnelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="DesignationToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageToken" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RemarkTables">
+          <Key>
+            <PropertyRef Name="RemarkID" />
+          </Key>
+          <Property Name="RemarkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeacherToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="MCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ReminderTables">
+          <Key>
+            <PropertyRef Name="ReminderID" />
+          </Key>
+          <Property Name="ReminderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventTypeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="MCD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SchoolSubjectSettings">
+          <Key>
+            <PropertyRef Name="SchoolSubjectSettingID" />
+          </Key>
+          <Property Name="SchoolSubjectSettingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubjectToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GradeToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentTables">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GradeToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageToken" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="school5adskModelStoreContainer">
+          <EntitySet Name="AboutTables" EntityType="Self.AboutTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnnouncementTables" EntityType="Self.AnnouncementTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AssignmentTables" EntityType="Self.AssignmentTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendanceTables" EntityType="Self.AttendanceTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChildAchievementTables" EntityType="Self.ChildAchievementTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeeDueTables" EntityType="Self.FeeDueTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageTables" EntityType="Self.MessageTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoticeTables" EntityType="Self.NoticeTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParentTables" EntityType="Self.ParentTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonnelTables" EntityType="Self.PersonnelTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RemarkTables" EntityType="Self.RemarkTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReminderTables" EntityType="Self.ReminderTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolSubjectSettings" EntityType="Self.SchoolSubjectSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentTables" EntityType="Self.StudentTables" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="school5adskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AnnouncementTable">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AttendanceTable">
+          <Key>
+            <PropertyRef Name="AttendanceID" />
+          </Key>
+          <Property Name="AttendanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Present" Type="Int32" />
+          <Property Name="Absent" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FeeDueTable">
+          <Key>
+            <PropertyRef Name="FeeID" />
+          </Key>
+          <Property Name="FeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCleared" Type="Boolean" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="GradeID" />
+          </Key>
+          <Property Name="GradeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GradeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClassAlpha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClassRoman" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ClassNumeric" Type="Int32" />
+          <Property Name="Section" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MessageTable">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NoticeTable">
+          <Key>
+            <PropertyRef Name="NoticeID" />
+          </Key>
+          <Property Name="NoticeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="280" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ParentTable">
+          <Key>
+            <PropertyRef Name="ParentID" />
+          </Key>
+          <Property Name="ParentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntryToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ParentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PersonnelTable">
+          <Key>
+            <PropertyRef Name="PersonnelID" />
+          </Key>
+          <Property Name="PersonnelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DesignationToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RemarkTable">
+          <Key>
+            <PropertyRef Name="RemarkID" />
+          </Key>
+          <Property Name="RemarkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ReminderTable">
+          <Key>
+            <PropertyRef Name="ReminderID" />
+          </Key>
+          <Property Name="ReminderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventTypeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SchoolSubjectSetting">
+          <Key>
+            <PropertyRef Name="SchoolSubjectSettingID" />
+          </Key>
+          <Property Name="SchoolSubjectSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubjectToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GradeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentTable">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GradeToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnnouncementTables" EntityType="Self.AnnouncementTable" />
+          <EntitySet Name="AttendanceTables" EntityType="Self.AttendanceTable" />
+          <EntitySet Name="FeeDueTables" EntityType="Self.FeeDueTable" />
+          <EntitySet Name="Grades" EntityType="Self.Grade" />
+          <EntitySet Name="MessageTables" EntityType="Self.MessageTable" />
+          <EntitySet Name="NoticeTables" EntityType="Self.NoticeTable" />
+          <EntitySet Name="ParentTables" EntityType="Self.ParentTable" />
+          <EntitySet Name="PersonnelTables" EntityType="Self.PersonnelTable" />
+          <EntitySet Name="RemarkTables" EntityType="Self.RemarkTable" />
+          <EntitySet Name="ReminderTables" EntityType="Self.ReminderTable" />
+          <EntitySet Name="SchoolSubjectSettings" EntityType="Self.SchoolSubjectSetting" />
+          <EntitySet Name="StudentTables" EntityType="Self.StudentTable" />
+          <EntitySet Name="AboutTables" EntityType="school5adskModel.AboutTable" />
+          <EntitySet Name="AssignmentTables" EntityType="school5adskModel.AssignmentTable" />
+          <EntitySet Name="ChildAchievementTables" EntityType="school5adskModel.ChildAchievementTable" />
+        </EntityContainer>
+        <EntityType Name="AboutTable">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Introduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Rules" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Facilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AssignmentTable">
+          <Key>
+            <PropertyRef Name="AssignmentID" />
+          </Key>
+          <Property Name="AssignmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChildAchievementTable">
+          <Key>
+            <PropertyRef Name="ChildAchievementID" />
+          </Key>
+          <Property Name="ChildAchievementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="school5adskModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="AnnouncementTables">
+            <EntityTypeMapping TypeName="school5adskModel.AnnouncementTable">
+              <MappingFragment StoreEntitySet="AnnouncementTables">
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+                <ScalarProperty Name="MCD" ColumnName="MCD" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceTables">
+            <EntityTypeMapping TypeName="school5adskModel.AttendanceTable">
+              <MappingFragment StoreEntitySet="AttendanceTables">
+                <ScalarProperty Name="AttendanceID" ColumnName="AttendanceID" />
+                <ScalarProperty Name="StudentToken" ColumnName="StudentToken" />
+                <ScalarProperty Name="Present" ColumnName="Present" />
+                <ScalarProperty Name="Absent" ColumnName="Absent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeeDueTables">
+            <EntityTypeMapping TypeName="school5adskModel.FeeDueTable">
+              <MappingFragment StoreEntitySet="FeeDueTables">
+                <ScalarProperty Name="FeeID" ColumnName="FeeID" />
+                <ScalarProperty Name="StudentToken" ColumnName="StudentToken" />
+                <ScalarProperty Name="MCD" ColumnName="MCD" />
+                <ScalarProperty Name="IsCleared" ColumnName="IsCleared" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="school5adskModel.Grade">
+              <MappingFragment StoreEntitySet="Grades">
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+                <ScalarProperty Name="GradeToken" ColumnName="GradeToken" />
+                <ScalarProperty Name="ClassAlpha" ColumnName="ClassAlpha" />
+                <ScalarProperty Name="ClassRoman" ColumnName="ClassRoman" />
+                <ScalarProperty Name="ClassNumeric" ColumnName="ClassNumeric" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageTables">
+            <EntityTypeMapping TypeName="school5adskModel.MessageTable">
+              <MappingFragment StoreEntitySet="MessageTables">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="MCD" ColumnName="MCD" />
+                <ScalarProperty Name="FromToken" ColumnName="FromToken" />
+                <ScalarProperty Name="ToToken" ColumnName="ToToken" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoticeTables">
+            <EntityTypeMapping TypeName="school5adskModel.NoticeTable">
+              <MappingFragment StoreEntitySet="NoticeTables">
+                <ScalarProperty Name="NoticeID" ColumnName="NoticeID" />
+                <ScalarProperty Name="MCD" ColumnName="MCD" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParentTables">
+            <EntityTypeMapping TypeName="school5adskModel.ParentTable">
+              <MappingFragment StoreEntitySet="ParentTables">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="EntryToken" ColumnName="EntryToken" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonnelTables">
+            <EntityTypeMapping TypeName="school5adskModel.PersonnelTable">
+              <MappingFragment StoreEntitySet="PersonnelTables">
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="TypeToken" ColumnName="TypeToken" />
+                <ScalarProperty Name="DesignationToken" ColumnName="DesignationToken" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="ImageToken" ColumnName="ImageToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RemarkTables">
+            <EntityTypeMapping TypeName="school5adskModel.RemarkTable">
+              <MappingFragment StoreEntitySet="RemarkTables">
+                <ScalarProperty Name="RemarkID" ColumnName="RemarkID" />
+                <ScalarProperty Name="StudentToken" ColumnName="StudentToken" />
+                <ScalarProperty Name="TeacherToken" ColumnName="TeacherToken" />
+                <ScalarProperty Name="MCD" ColumnName="MCD" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReminderTables">
+            <EntityTypeMapping TypeName="school5adskModel.ReminderTable">
+              <MappingFragment StoreEntitySet="ReminderTables">
+                <ScalarProperty Name="ReminderID" ColumnName="ReminderID" />
+                <ScalarProperty Name="EventTypeToken" ColumnName="EventTypeToken" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="MCD" ColumnName="MCD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolSubjectSettings">
+            <EntityTypeMapping TypeName="school5adskModel.SchoolSubjectSetting">
+              <MappingFragment StoreEntitySet="SchoolSubjectSettings">
+                <ScalarProperty Name="SchoolSubjectSettingID" ColumnName="SchoolSubjectSettingID" />
+                <ScalarProperty Name="SchoolToken" ColumnName="SchoolToken" />
+                <ScalarProperty Name="SubjectToken" ColumnName="SubjectToken" />
+                <ScalarProperty Name="GradeToken" ColumnName="GradeToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentTables">
+            <EntityTypeMapping TypeName="school5adskModel.StudentTable">
+              <MappingFragment StoreEntitySet="StudentTables">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="GradeToken" ColumnName="GradeToken" />
+                <ScalarProperty Name="ParentToken" ColumnName="ParentToken" />
+                <ScalarProperty Name="ImageToken" ColumnName="ImageToken" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutTables">
+            <EntityTypeMapping TypeName="school5adskModel.AboutTable">
+              <MappingFragment StoreEntitySet="AboutTables">
+                <ScalarProperty Name="Facilities" ColumnName="Facilities" />
+                <ScalarProperty Name="Rules" ColumnName="Rules" />
+                <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+                <ScalarProperty Name="AboutID" ColumnName="AboutID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssignmentTables">
+            <EntityTypeMapping TypeName="school5adskModel.AssignmentTable">
+              <MappingFragment StoreEntitySet="AssignmentTables">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="MCD" ColumnName="MCD" />
+                <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChildAchievementTables">
+            <EntityTypeMapping TypeName="school5adskModel.ChildAchievementTable">
+              <MappingFragment StoreEntitySet="ChildAchievementTables">
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="MCD" ColumnName="MCD" />
+                <ScalarProperty Name="StudentToken" ColumnName="StudentToken" />
+                <ScalarProperty Name="ChildAchievementID" ColumnName="ChildAchievementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

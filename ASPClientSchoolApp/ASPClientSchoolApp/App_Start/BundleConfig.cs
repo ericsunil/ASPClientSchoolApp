@@ -73,7 +73,7 @@ namespace ASPClientSchoolApp
 
 
             bundles.Add(new ScriptBundle("~/Inspiana_Common_JS").Include(
-                    "~/Content/Inspiana/js/jquery-3.1.1.min.js",//c
+                   // "~/Content/Inspiana/js/jquery-3.1.1.min.js",//c //this js should be top of all js so placed separately
                     "~/Content/Inspiana/js/bootstrap.min.js",//c
                     //< !--MENU-- >
                     "~/Content/Inspiana/js/plugins/metisMenu/jquery.metisMenu.js",//c
@@ -92,6 +92,7 @@ namespace ASPClientSchoolApp
                     ));
 
             bundles.Add(new ScriptBundle("~/Inspiana_Dashboard_JS").Include(
+                "~/Content/Inspiana/js/jquery-3.1.1.min.js",//c
 
                     //Flot
                     "~/Content/Inspiana/js/plugins/flot/jquery.flot.js",
@@ -117,6 +118,7 @@ namespace ASPClientSchoolApp
                     ));
 
             bundles.Add(new ScriptBundle("~/Inspiana_Form_JS").Include(
+                "~/Content/Inspiana/js/jquery-3.1.1.min.js",//c
                     //< !--Chosen-- >
                     "~/Content/Inspiana/js/plugins/chosen/chosen.jquery.js",
                     //< !--JSKnob-- >

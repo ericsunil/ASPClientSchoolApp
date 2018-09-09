@@ -1,0 +1,60 @@
+﻿@model ASPClientSchoolApp.Models.MessageTable
+
+@{
+    ViewBag.Title = "AddorEdit";
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("AddorEdit", "Message", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_resetUrl = Url.Action("AddorEdit", "Message", new { id = 0 }) })) //data-resetUrl
+{
+    @Html.AntiForgeryToken()
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.MessageID)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MCD, htmlAttributes: new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(model => model.MCD, new { htmlAttributes = new { @class = "form-control", @Value="1276" } })
+                @Html.ValidationMessageFor(model => model.MCD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FromToken, htmlAttributes: new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(model => model.FromToken, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FromToken, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ToToken, htmlAttributes: new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(model => model.ToToken, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ToToken, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label" })
+            <div>
+                @Html.TextAreaFor(model => model.Detail, new { @class = "form-control",rows = "8", placeholder="Message here ..." })
+                @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>Save</strong></button>
+        </div>
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

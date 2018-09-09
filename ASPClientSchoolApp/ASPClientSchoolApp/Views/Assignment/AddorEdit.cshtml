@@ -1,0 +1,54 @@
+﻿@model ASPClientSchoolApp.Models.AssignmentTable
+
+@{
+    ViewBag.Title = "AddorEdit";
+    Layout = null;
+}
+
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+
+
+@using (Html.BeginForm("AddorEdit", "Assignment", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_resetUrl = Url.Action("AddorEdit", "Assignment", new { id = 0 }) })) //data-resetUrl
+{
+    @Html.AntiForgeryToken()
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.AssignmentID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MCD, htmlAttributes: new { @class = "control-label" })
+        <div>
+            @Html.EditorFor(model => model.MCD, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MCD, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
+        <div>
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder="Title of the Assignment here..." } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+        <div>
+            @Html.TextAreaFor(model => model.Description, new {  @class = "form-control", rows = "8", placeholder = "Description of the Assignment here..." })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>Save</strong></button>
+
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
